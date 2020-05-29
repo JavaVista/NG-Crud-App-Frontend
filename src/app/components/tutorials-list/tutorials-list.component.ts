@@ -21,7 +21,7 @@ export class TutorialsListComponent implements OnInit {
       console.log(data);
     },
       error => {
-        console.log(error);
+        console.log('Server error: ', error);
       }
     );
   }
