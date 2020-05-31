@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const strapiUrl = 'http://localhost:1337/tutorials/';
+const strapiUrl = 'http://localhost:1337/tutorials';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class TutorialService {
   }
 
   get(id) {
-    return this.http.get(`{strapiUrl}/${id}`);
+    return this.http.get(`${strapiUrl}/${id}`);
   }
 
   create(data) {
@@ -34,8 +34,8 @@ export class TutorialService {
     return this.http.delete(strapiUrl);
   }
 
-  findByTitle(title) {
-    return this.http.get(`${strapiUrl}?title=${title}`);
+  findByName(name) {
+    return this.http.get(`${strapiUrl}?name=${name}`);
   }
 
 }
