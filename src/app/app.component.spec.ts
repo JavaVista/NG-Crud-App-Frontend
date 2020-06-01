@@ -26,10 +26,15 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('frontend');
   });
 
-  it('should render title', () => {
+  it('should show a nav title RUD NG APP', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('frontend app is running!');
+    expect(compiled.querySelector('[data-test="nav-title"]').textContent).toContain('CRUD NG APP');
+  });
+
+  it('should show a nav', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    expect(fixture.nativeElement.querySelector('[data-test="nav"]')).toBeTruthy();
   });
 });
