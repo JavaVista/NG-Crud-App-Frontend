@@ -19,7 +19,8 @@ describe('TutorialDetailsComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should show a heading Tutorial', () => {
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('[data-test="heading"]').textContent).toContain('Tutorial');
   });
 });
