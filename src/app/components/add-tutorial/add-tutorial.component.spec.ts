@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddTutorialComponent } from './add-tutorial.component';
+import { TutorialService } from 'src/app/services/tutorial.service';
 
 describe('AddTutorialComponent', () => {
   let component: AddTutorialComponent;
@@ -8,7 +9,10 @@ describe('AddTutorialComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddTutorialComponent ]
+      declarations: [ AddTutorialComponent ],
+      providers: [
+        { provide: TutorialService, useClass: TutorialServiceStub }
+      ]
     })
     .compileComponents();
   }));
@@ -23,3 +27,7 @@ describe('AddTutorialComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+class TutorialServiceStub {
+
+}
