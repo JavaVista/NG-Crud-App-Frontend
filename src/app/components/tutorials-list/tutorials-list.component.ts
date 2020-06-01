@@ -7,7 +7,11 @@ import { TutorialService } from 'src/app/services/tutorial.service';
   styleUrls: ['./tutorials-list.component.css']
 })
 export class TutorialsListComponent implements OnInit {
+
   tutorials: any;
+  currentTutorial = null;
+  currentIndex = -1;
+  name = '';
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -24,6 +28,29 @@ export class TutorialsListComponent implements OnInit {
         console.log('Server error: ', error);
       }
     );
+  }
+
+  refreshList() {
+    this.retrieveTutorials();
+    this.currentTutorial = null;
+    this.currentIndex = -1;
+  }
+
+  setActiveTutorial(tutorial, index) {
+    this.currentTutorial = tutorial;
+    this.currentIndex = index;
+  }
+
+  searchName() {
+    this.tutorialService.findByName(this.name).subscribe(
+      data => {
+        this.tutorials = data;
+        console.log(data);
+      },
+      error => {
+        console.log('Search: ', error);
+      }
+    )
   }
 
 }
