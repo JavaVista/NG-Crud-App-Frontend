@@ -14,19 +14,19 @@ export class TutorialService {
     return this.http.get(strapiUrl);
   }
 
-  get(id) {
+  get(id: number) {
     return this.http.get(`${strapiUrl}/${id}`);
   }
 
-  create(data) {
+  create(data: any) {
     return this.http.post(strapiUrl, data);
   }
 
-  update(id, data) {
+  update(id: number, data: any) {
     return this.http.put(`${strapiUrl}/${id}`, data);
   }
 
-  delete(id) {
+  delete(id: number) {
     return this.http.delete(`${strapiUrl}/${id}`);
   }
 
@@ -34,7 +34,7 @@ export class TutorialService {
     return this.http.delete(strapiUrl);
   }
 
-  findByName(name) {
+  findByName(name: string) {
     return this.http.get(`${strapiUrl}?name=${name}`);
   }
 
