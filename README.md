@@ -1,5 +1,13 @@
 # Frontend
 
+Install, build and start Angular with the following:
+
+```bash
+cd frontend
+npm install
+ng serve --open
+```
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
 
 ## Development server
